@@ -1,0 +1,32 @@
+/* grid 20 80 */
+.hcard{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    margin: 10px 0 10px ;
+}
+
+.img{
+    border-radius: 4px;
+    background-size: cover;
+    
+}
+
+.hcarddetails{
+    margin: 10px;
+}
+.htitle{
+    font-weight: 500;
+    font-size: 30px;
+}
+.hdesc{
+    color: gray;
+}
+.hextras{
+    display: flex;
+    justify-content: space-between;
+}
+
+.like{
+    display: flex;
+    align-items: center;
+}
