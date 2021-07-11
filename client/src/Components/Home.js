@@ -8,7 +8,8 @@ const Home = ({title}) => {
             utID: "rQs6HjTw0VE",
             description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             likes : 20,
-            episodes: 5
+            episodes: 5,
+            creator: ['one','two']
         },
         {
             title : "Title 2hello this is the title 1",
@@ -20,9 +21,37 @@ const Home = ({title}) => {
         {
             title : "title 3 hello this is the title 1",
             utID: "rQs6HjTw0VE",
-            description : "m id est laborum.",
+            description : "loreum ahdfoeowanf ",
             likes : 100,
             episodes: 10
+        },
+        {
+            title : "Title 2hello this is the title 1",
+            utID: "rQs6HjTw0VE",
+            description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            likes : 2,
+            episodes: 1
+        },,
+        {
+            title : "Title 2hello this is the title 1",
+            utID: "rQs6HjTw0VE",
+            description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            likes : 2,
+            episodes: 1
+        },,
+        {
+            title : "Title 2hello this is the title 1",
+            utID: "rQs6HjTw0VE",
+            description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            likes : 2,
+            episodes: 1
+        },,
+        {
+            title : "Title 2hello this is the title 1",
+            utID: "rQs6HjTw0VE",
+            description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            likes : 2,
+            episodes: 1
         }
     ]
 

@@ -1,32 +1,72 @@
 /* grid 20 80 */
+
+
 .hcard{
     display: grid;
-    grid-template-columns: 20% 80%;
-    margin: 10px 0 10px ;
+    grid-template-columns: 30% 70%;
+    margin: 0 0 10px ;
+    height: fit-content;
+    padding: 8px;
+    /* border: 2px black solid; */
+    border-radius: 2px;
+    
 }
 
 .img{
+    display: block;
     border-radius: 4px;
     background-size: cover;
-    
+    height: 180px;
 }
 
 .hcarddetails{
     margin: 10px;
+    position: relative;
 }
 .htitle{
     font-weight: 500;
-    font-size: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    
 }
 .hdesc{
-    color: gray;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1em;
+    
 }
 .hextras{
+    font-weight: 600;
     display: flex;
+    margin: 10px 0 0 0;
     justify-content: space-between;
+
 }
 
+.ep{
+    
+    padding-right: 18px;
+    right: 0;
+}
 .like{
     display: flex;
     align-items: center;
+    
 }
+
+.text-limit {
+    
+    /* width: 300px; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+  }
+
+.text-limit-desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
