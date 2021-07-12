@@ -3,6 +3,7 @@
   
 }
 
+
 .btmnav{
   position: fixed;
   bottom: 0;
@@ -27,12 +28,16 @@
 
 
 .nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0px 4px 28px -12px rgba(0,0,0,0.87);
--webkit-box-shadow: 0px 4px 28px -12px rgba(0,0,0,0.87);
--moz-box-shadow: 0px 4px 28px -12px rgba(0,0,0,0.87);
+  border-bottom: gray solid 1px;
+  box-shadow: 0px 4px 16px -12px rgba(0,0,0,0.87);
 }
 
 .selected_navlink{
@@ -44,7 +49,7 @@
 }
 .fragment{
  
-  margin: 0 10px 80px 10px;
+  margin: 60px 10px 80px 10px;
 }
 
 .shadowDepth1 {
@@ -58,3 +63,4 @@
   margin:4px;
 
 }
+

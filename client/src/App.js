@@ -9,23 +9,27 @@ import {
 import BottomNav from './Components/BottomNav';
 import Home from './Components/Home';
 import Trending  from './Components/Trending';
+import TopNav from './Components/Parts/TopNav';
+
 
 
 function App() {
-  
+
   return (
     <div className="App">
       <Router>
-
+      <TopNav />
         <div className="fragment">
           <Switch>
 
             <Route exact path="/">
+                
                 <Home
-                title="Popular on onlyCheems" />
+                search ={true}
+                title="Popular on title" />
             </Route>
-            <Route exact path="/trending">
-                <Trending/>
+            <Route exact path="/trending/:id">
+                <Trending />
 
             </Route>
 

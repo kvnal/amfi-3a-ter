@@ -4,7 +4,6 @@
 .hcard{
     display: grid;
     grid-template-columns: 30% 70%;
-    margin: 0 0 10px ;
     height: fit-content;
     padding: 8px;
     /* border: 2px black solid; */
@@ -21,7 +20,7 @@
 
 .hcarddetails{
     margin: 10px;
-    position: relative;
+    /* position: relative; */
 }
 .htitle{
     font-weight: 500;
