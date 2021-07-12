@@ -3,11 +3,11 @@ import Like from '@material-ui/icons/FavoriteRounded'
 
 import { Link } from 'react-router-dom'
 
-const HCard = ({utID,title,desc,likes,ep}) => {
+const HCard = ({id,utID,title,desc,likes,ep}) => {
     const utID_URL = `https://img.youtube.com/vi/${utID}/mqdefault.jpg`
     return (  
         <>
-            <Link to={`/trending/${utID}`}>
+            <Link to={`/trending/${id}`}>
         <div className="hcard shadowDepth1">
             <div className="img" style={{background:`url(${utID_URL}) center no-repeat`,backgroundSize:'cover'}} >
                 {/* <img src={utID_URL} alt="" /> */}

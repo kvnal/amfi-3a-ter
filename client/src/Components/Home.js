@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HCard from "./Parts/Horizontal_card";
 import SearchBar from "./Parts/SearchBar";
 
 const data = [
-    {
+    {   
+        id:1,
         title: "hello this is the title 1",
         utID: "rQs6HjTw0VE",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -11,7 +12,7 @@ const data = [
         episodes: ["rQs6HjTw0VE","",""],
         creator: ['one', 'two']
     },
-    {
+    {   id:2,
         title: "world sok3",
         utID: "rQs6HjTw0VE",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -19,7 +20,7 @@ const data = [
         episodes: ["rQs6HjTw0VE","",""],
         creator: ['one', 'two']
     },
-    {
+    {   id:3,
         title: "title 3 hello this is the title 1",
         utID: "rQs6HjTw0VE",
         description: "loreum ahdfoeowanf ",
@@ -27,7 +28,7 @@ const data = [
         episodes: ["rQs6HjTw0VE","",""],
         creator: ['one', 'two']
     },
-    {
+    {   id:4,
         title: "Title 2hello this is the title 1",
         utID: "rQs6HjTw0VE",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -37,15 +38,18 @@ const data = [
     },
 ];
 const Home = ({ search, title }) => {
-    // useeffect fetch
+    // useeffect fetch // check title == Trending
 
     const [searchTerm, setSearchTerm] = useState("");
 
+    useEffect(()=>{
+        setSearchTerm("")
+    },[title])
     return (
         <div className="home">
 
             { search &&
-                <div className="search">
+                <div  className="search">
                     <SearchBar searchTerm={setSearchTerm} />
                     
                 </div>
@@ -66,6 +70,8 @@ const Home = ({ search, title }) => {
                 }).map(element => (
                     // {utID,title,desc,likes,ep}
                     <HCard
+                        key={element.id}
+                        id={element.id}
                         utID={element.utID}
                         title={element.title}
                         desc={element.description}

@@ -6,6 +6,7 @@
     grid-template-columns: 30% 70%;
     height: fit-content;
     padding: 8px;
+    margin-bottom: 8px;
     /* border: 2px black solid; */
     border-radius: 2px;
     
