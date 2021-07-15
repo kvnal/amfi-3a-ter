@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.11.2",
     "material-design-icons": "^3.0.1",
     "nodemon": "^2.0.11",
+    "react-hot-toast": "^2.0.0",
     "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0"
   }

@@ -3,6 +3,7 @@ import Instagram from "@material-ui/icons/Instagram";
 import Youtube from "@material-ui/icons/YouTube";
 import Share from "@material-ui/icons/ShareRounded";
 import Verify from "@material-ui/icons/CheckCircleRounded";
+import toast , {Toaster} from 'react-hot-toast';
 
 const data = {
     id: "",
@@ -15,6 +16,19 @@ const data = {
 };
 const Creator = () => {
     // use effect fetch details
+    const handleShare = ()=>{
+        const url = window.location.href
+        var inp = document.body.appendChild(document.createElement("input"))
+        inp.value = url
+        inp.focus()
+        inp.select()
+        inp.setSelectionRange(0,1000)
+        document.execCommand('copy')
+        inp.parentNode.removeChild(inp)
+        window.scrollTo(0,0)
+        return toast.success("Copied")
+
+    }
     return (
         <div className="creator">
             <div className="profilepic" >
@@ -35,12 +49,21 @@ const Creator = () => {
                 <a href={data.instagram}>
                 <Youtube />
                 </a>
-                <a >
+                <a onClick={handleShare}>
                 <Share />
                 </a>
 
             </div>
             <a className="subs" href={""}>Subscribe</a>
+            <Toaster 
+            position="bottom-center"
+            reverseOrder={false}
+            toastOptions={{
+                success:{
+                    duration: 1500
+                }}
+            }
+            />
         </div>
     );
 };
