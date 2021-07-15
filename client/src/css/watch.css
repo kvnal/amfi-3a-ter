@@ -1,8 +1,9 @@
+.player{
+  /* position: sticky; */
+}
+
 .video{
     width: 100%;
-}
-.video iframe{
-   
 }
 
 /* responsive player */
@@ -17,6 +18,66 @@
     left: 0;
   }
 
+
+  
   .readmore{
-      color: blue;
+      display: inline;
+      font-weight: 700;
+  }
+
+  .watchlikes{
+    width: 100%;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+.likespan{
+  display: flex;
+  align-items: center;
+  
+}
+
+  .likespan span{
+    padding-left: 4px;
+  }
+
+  .creators{
+    font-style: italic;
+
+  }
+  .creatorspan{
+    padding-left: 4px;
+    font-weight: 700;
+  }
+
+
+  .episodes span{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .episodecard{
+  }
+
+  .epcard{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 4px;
+    margin: 4px 0 4px;
+  }
+  
+  .epimg{
+    width: 120px;
+    height: 60px;
+    display: block;
+    border-radius: 4px;
+    background-size: cover;
+  }
+
+  .epdetail{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 4px ;
   }

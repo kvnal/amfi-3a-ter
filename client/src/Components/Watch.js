@@ -2,13 +2,15 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import '../css/watch.css';
+import WatchLike from "./Parts/WatchLike";
+import Episodes from "./Parts/Episodes";
 
 const data = {
     title: "Title 2hello this is the title 1",
     utID: "rQs6HjTw0VE",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     likes: 2,
-    episodes: ["YnP94m5pwls", "oUFJJNQGwhk", ""],
+    episodes: ["YnP94m5pwls", "oUFJJNQGwhk", "oUFJJNQGwhk", "oUFJJNQGwhk", "oUFJJNQGwhk", ""],
     creator: ['one', 'two']
 };
 
@@ -38,18 +40,18 @@ const Watch = () => {
                 <div className="hdesc">
                     {!showDesc &&
                         <>
-                            <p>
+                            <span>
                                 {data.description.slice(0, 100)+"..."}
-                            </p>
                             <button className="readmore" onClick={() => setShowDesc(true)}>Read More.</button>
+                            </span>
                         </>
                     }
                     {showDesc &&
                         <>
-                            <p>
+                            <span>
                                 {data.description}
-                            </p>
                             <button className="readmore" onClick={() => setShowDesc(false)}>Read less.</button>
+                            </span>
                         </>
                     }
                    
@@ -57,9 +59,13 @@ const Watch = () => {
                 </div>
                 <div className="extras">
                         <div className="likes">
-                            {data.likes}
+                            <WatchLike storageID = {data.utID} likes={data.likes} creator = {data.creator}/>
                         </div>
-                    </div>
+                </div>
+            </div>
+
+            <div className="playerepisode">
+                <Episodes episodes={data.episodes} setEpisode={setEpisodeID}/>
             </div>
 
         </div>

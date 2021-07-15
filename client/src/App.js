@@ -24,7 +24,6 @@ function App() {
           <Switch>
 
             <Route exact path="/">
-                
                 <Home
                 search ={true}
                 title="Popular on title" />
