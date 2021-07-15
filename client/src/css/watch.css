@@ -51,11 +51,19 @@
   }
 
 
+  .episodes{
+    margin: 20px 0;
+
+  }
   .episodes span{
-    display: block;
+    margin: 0 10px 0 10px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
     text-align: center;
     font-size: 18px;
     font-weight: 700;
+
   }
   .episodecard{
   }

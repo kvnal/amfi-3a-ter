@@ -12,7 +12,7 @@ const ShareLink = () => {
         document.execCommand('copy')
         inp.parentNode.removeChild(inp)
         window.scrollTo(0,0)
-        return toast.success("Copied")
+        return toast.success("Link Copied")
 
     }
     return (<>

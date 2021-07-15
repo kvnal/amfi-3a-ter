@@ -1,3 +1,5 @@
+import ShareLink from "./small/ShareLink";
+
 const utURL = "https://img.youtube.com/vi/";
 const Episodes = ({ episodes, setEpisode }) => {
 
@@ -6,7 +8,7 @@ const Episodes = ({ episodes, setEpisode }) => {
             return window.scrollTo({top:0, behavior:'smooth'})
     }
     return (<div className="episodes">
-        <span>Episodes {episodes.length}</span>
+        <span>Episodes {episodes.length} <ShareLink/></span>
 
         <div className="episodecard">
 
