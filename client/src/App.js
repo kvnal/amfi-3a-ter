@@ -34,6 +34,11 @@ function App() {
             <Route path="/watch/:id">
               <Watch/>
             </Route>
+            <Route path="/creator/:id">
+                <Home search={false}
+                  title="All Videos"
+                  creatorCard={true}/>
+            </Route>
 
           </Switch>
         </div>

@@ -1,0 +1,80 @@
+.creator{
+    margin: 0 0 30px 0;
+    
+}
+
+.profilepic{
+    display: block;
+    margin: auto;
+    width: 100%;
+    width: 100px;
+    height: 100px;
+    background: url(../img/profile.png) no-repeat center;
+    background-size: cover;
+    border-radius: 100%;
+    /* border: 4px solid rgb(23, 201, 255); */
+}
+
+
+
+.profilepic svg{
+    color: rgb(23, 201, 255);
+    background-color: white;
+    border-radius: 100%;
+    position: relative;
+    top: 60px;
+    right: -80px;
+}
+.name{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 4px;
+}
+
+.verify{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.name svg{
+    background-color: white;
+    height: 18px;
+    border-radius: 100%;
+    color: rgb(23, 201, 255);
+}
+.about{
+    display: block;
+    font-size: 15px;
+    /* font-weight: 700; */
+    text-align: center;
+    margin: 4px;
+}
+
+
+
+.socials{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.socials a{
+    margin: 10px ;
+    color: gray;
+}
+
+.subs{
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+    
+}

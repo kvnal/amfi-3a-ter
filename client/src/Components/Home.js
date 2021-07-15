@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Creator from "./Parts/Creator";
 import HCard from "./Parts/Horizontal_card";
 import SearchBar from "./Parts/SearchBar";
 
@@ -18,12 +19,12 @@ const data = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         likes: 2,
         episodes: ["rQs6HjTw0VE","",""],
-        creator: ['one', 'two']
+        creator: ['creator', 'two']
     },
     {   id:3,
-        title: "title 3 hello this is the title 1",
+        title: "title 3 hello this is creator title 1",
         utID: "rQs6HjTw0VE",
-        description: "loreum ahdfoeowanf ",
+        description: "thi is title creator ",
         likes: 100,
         episodes: ["rQs6HjTw0VE","",""],
         creator: ['one', 'two']
@@ -37,7 +38,7 @@ const data = [
         creator: ['one', 'two']
     },
 ];
-const Home = ({ search, title }) => {
+const Home = ({ search, title, creatorCard }) => {
     // useeffect fetch // check title == Trending
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -47,7 +48,8 @@ const Home = ({ search, title }) => {
     },[title])
     return (
         <div className="home">
-
+            {creatorCard && <Creator/>}
+            
             { search &&
                 <div  className="search">
                     <SearchBar searchTerm={setSearchTerm} />
@@ -65,7 +67,8 @@ const Home = ({ search, title }) => {
                 data.filter(element=>{
                     if(searchTerm === "")
                         return element
-                    return (element.title.toLowerCase().includes(searchTerm.toLowerCase().trim()))
+                    return (element.title.toLowerCase().includes(searchTerm.toLowerCase().trim()) || 
+                            element.creator.join().toLowerCase().includes(searchTerm.toLowerCase().trim()))
                     
                 }).map(element => (
                     // {utID,title,desc,likes,ep}
