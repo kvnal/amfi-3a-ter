@@ -78,3 +78,43 @@
     font-weight: 700;
     
 }
+.dmus{
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    background-color: rgb(23, 201, 255);
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+    
+}
+.addvideo{
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    color: rgb(23, 201, 255);
+    border: rgb(23, 201, 255) solid 2px;
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+    
+}
+
+.allcreator span{
+    display: block;
+    text-align: center;
+    
+}
+.creatorgird{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.creatorgird span{
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    margin: 0 0 8px;
+}

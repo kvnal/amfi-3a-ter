@@ -1,6 +1,7 @@
 import Like from '@material-ui/icons/FavoriteRounded'
 import OutLike from '@material-ui/icons/FavoriteBorderOutlined'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -49,12 +50,14 @@ const WatchLike = ({storageID, likes, creator }) => {
                 <div className="creators">
                     <span>
                         creators:
+                        <Link to={`/creator/${creator[0]}`}>
                         {creator.map(element =>(
                             // link to home id or ?= creator name
-                        <span className="creatorspan">
+                            <span className="creatorspan">
                             {element}
                         </span>
                         ))}
+                        </Link>
                     </span>
                 </div>
         </div>

@@ -45,6 +45,7 @@ const Home = ({ search, title, creatorCard }) => {
 
     useEffect(()=>{
         setSearchTerm("")
+        window.scrollTo(0,0)
     },[title])
     return (
         <div className="home">

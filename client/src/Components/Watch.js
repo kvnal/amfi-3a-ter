@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import '../css/watch.css';
@@ -17,6 +17,10 @@ const data = {
 const Watch = () => {
     //fetch id file use
     // const {id} = useParams();
+    useEffect(()=>{
+        window.scrollTo(0,0)
+
+    },[])
 
     const [episodeID, setEpisodeID] = useState(data.episodes[0]);
     const [showDesc, setShowDesc] = useState(false);

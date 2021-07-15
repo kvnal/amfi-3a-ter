@@ -3,6 +3,8 @@ import Instagram from "@material-ui/icons/Instagram";
 import Youtube from "@material-ui/icons/YouTube";
 import Verify from "@material-ui/icons/CheckCircleRounded";
 import ShareLink from './small/ShareLink';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const data = {
     id: "",
@@ -15,7 +17,12 @@ const data = {
 };
 const Creator = () => {
     // use effect fetch details
-
+    const {id} = useParams()
+    
+    useEffect(()=>{
+        window.scrollTo(0,0)
+        console.log(id);
+    },[])
     return (
         <div className="creator">
             <div className="profilepic" >
@@ -30,10 +37,10 @@ const Creator = () => {
             </div>
 
             <div className="socials">
-                <a href={data.instagram}>
+                <a href={data.instagram} target="_blank">
                     <Instagram />
                 </a>
-                <a href={data.instagram}>
+                <a href={data.instagram} target="_blank"> 
                 <Youtube />
                 </a>
                 <a >

@@ -7,7 +7,7 @@ const HCard = ({id,utID,title,desc,likes,ep}) => {
     const utID_URL = `https://img.youtube.com/vi/${utID}/mqdefault.jpg`
     return (  
         <>
-            <Link to={`/trending/${id}`}>
+            <Link to={`/watch/${id}`}>
         <div className="hcard shadowDepth1">
             <div className="img" style={{background:`url(${utID_URL}) center no-repeat`,backgroundSize:'cover'}} >
                 {/* <img src={utID_URL} alt="" /> */}
