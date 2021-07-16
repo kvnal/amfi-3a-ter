@@ -37,7 +37,7 @@ const contentSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    desc: {
+    description: {
         required: true,
         type: String
     },

@@ -4,38 +4,73 @@ const router = express.Router()
 const schema = require("../db/schema")
 router.use(express.json())
 
+
 router.get('/popular', async (req,res)=>{
     //sort db on likes
     try{
         const popular = await schema.content.find()
-        return res.json(popular)
+        .sort([['likes',-1]])
+        .exec((err,result)=>{
+            return res.json(result)
+        })
     }
     catch{
         return 0
     }
     // return res.send("popular")
 })
-router.get('/trending',(req,res)=>{
+
+router.get('/trending',async (req,res)=>{
     //sort db on timestamp
-    return res.send("trending")
-})
-router.get('/creator/:id',(req,res)=>{
-    console.log(req.params);
-    //res on creator "name"
-    return res.send("trending")
-})
-router.get('/watch/:id',(req,res)=>{
-    console.log(req.params.watch);
-    //res data
-    return res.send("watch")
+    try{
+        await schema.content.find()
+        .sort([['createdAt',-1]])
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+    }
+    catch{
+        return 0
+    }
 })
 
+router.get('/creator/:id', async (req,res)=>{
+    // id == name of creator
+    try{
+        const ID = req.params.id
+         await schema.creator.find({name : ID})
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+    }
+    catch{
+        return res.status(400)
+    }
+    
+})
+
+router.get('/watch/:id',async (req,res)=>{
+    try{
+        const ID = req.params.id 
+        await schema.content.findById(ID)
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+    }
+    catch{
+        return res.status(404)
+    }
+    
+    
+})
+
+// POST
 router.post('/content', async (req,res)=>{
     try{
         const content = new schema.content({
             title: req.body.title,
             utID: req.body.utID,
-            desc: req.body.desc,
+            description: req.body.description,
             episodes: req.body.episodes,
             creator: req.body.creator
         })
@@ -49,4 +84,38 @@ router.post('/content', async (req,res)=>{
 
 })
 
+router.post('/creator', async (req,res)=>{
+    const creator = new schema.creator({
+        name : req.body.name,
+        pass : req.body.pass,
+        youtube: req.body.youtube,
+        instagram: req.body.instagram,
+        youtube_channel_id : req.body.youtube_channel_id ,
+        about: req.body.about,
+    })
+    try{
+        const newCreator = await creator.save()
+        return res.status(201).json(newCreator)
+
+    }
+    catch(err) {
+      return res.status(400).json({messsage: err.message})
+    }
+
+})
+
+router.patch("/like/:id",async (req,res)=>{
+    try{
+        const ID = req.params.id
+        await schema.content.findByIdAndUpdate(ID,{$inc: {likes: 1}})
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+        
+
+    }
+    catch(err) {
+      return res.status(400).json({messsage: err.message})
+    }
+})
 module.exports = router
