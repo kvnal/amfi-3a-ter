@@ -2,51 +2,39 @@ import { useEffect, useState } from "react";
 import Creator from "./Parts/Creator";
 import HCard from "./Parts/Horizontal_card";
 import SearchBar from "./Parts/SearchBar";
+import axios from 'axios'
+import { useParams } from "react-router-dom";
 
-const data = [
-    {   
-        id:1,
-        title: "hello this is the title 1",
-        utID: "rQs6HjTw0VE",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        likes: 20,
-        episodes: ["rQs6HjTw0VE","",""],
-        creator: ['one', 'two']
-    },
-    {   id:2,
-        title: "world sok3",
-        utID: "rQs6HjTw0VE",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        likes: 2,
-        episodes: ["rQs6HjTw0VE","",""],
-        creator: ['creator', 'two']
-    },
-    {   id:3,
-        title: "title 3 hello this is creator title 1",
-        utID: "rQs6HjTw0VE",
-        description: "thi is title creator ",
-        likes: 100,
-        episodes: ["rQs6HjTw0VE","",""],
-        creator: ['one', 'two']
-    },
-    {   id:4,
-        title: "diff",
-        utID: "oUFJJNQGwhk",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        likes: 2,
-        episodes: ["oUFJJNQGwhk","",""],
-        creator: ['one', 'two']
-    },
-];
+
 const Home = ({ search, title, creatorCard }) => {
     // useeffect fetch // check title == Trending
 
     const [searchTerm, setSearchTerm] = useState("");
-
+    const [data,setData] = useState(null)
+    const params = useParams()
     useEffect(()=>{
         setSearchTerm("")
         window.scrollTo(0,0)
+        
+        if(title.toLowerCase().includes("popular"))
+            var CONTENT = 'popular'
+        else if (title.toLowerCase().includes("trending"))
+            var CONTENT = 'trending'
+
+        else if (title.toLowerCase().includes("all videos"))
+            {   
+                var CONTENT = `creator/allvideos/${params.id}`
+        }
+
+        axios.get(`/api/${CONTENT}`)
+        .then(response=>{
+            console.log(response.status);
+            setData(response.data)
+            console.log(response.data);
+        })            
     },[title])
+
+    if (!data) return null
     return (
         <div className="home">
             {creatorCard && <Creator/>}
@@ -74,8 +62,8 @@ const Home = ({ search, title, creatorCard }) => {
                 }).map(element => (
                     // {utID,title,desc,likes,ep}
                     <HCard
-                        key={element.id}
-                        id={element.id}
+                        key={element._id}
+                        id={element._id}
                         utID={element.utID}
                         title={element.title}
                         desc={element.description}

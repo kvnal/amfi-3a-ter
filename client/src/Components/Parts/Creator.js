@@ -3,8 +3,9 @@ import Instagram from "@material-ui/icons/Instagram";
 import Youtube from "@material-ui/icons/YouTube";
 import Verify from "@material-ui/icons/CheckCircleRounded";
 import ShareLink from './small/ShareLink';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const data = {
     id: "",
@@ -18,11 +19,18 @@ const data = {
 const Creator = () => {
     // use effect fetch details
     const {id} = useParams()
-    
+    const [data,setData] = useState(null)
     useEffect(()=>{
         window.scrollTo(0,0)
         console.log(id);
+
+        axios.get(`/api/creator/${id}`)
+        .then(response=>{
+            setData(response.data[0])
+        })
     },[])
+    
+    if(!data) return null
     return (
         <div className="creator">
             <div className="profilepic" >
@@ -37,10 +45,10 @@ const Creator = () => {
             </div>
 
             <div className="socials">
-                <a href={data.instagram} target="_blank">
+                <a href={`https://instagram.com/${data.instagram}`} target="_blank">
                     <Instagram />
                 </a>
-                <a href={data.instagram} target="_blank"> 
+                <a href={`https://youtube.com/channel/${data.youtube_channel_id}`} target="_blank"> 
                 <Youtube />
                 </a>
                 <a >
@@ -48,7 +56,7 @@ const Creator = () => {
                 </a>
 
             </div>
-            <a className="subs" href={""}>Subscribe</a>
+            <a className="subs" href={`https://youtube.com/channel/${data.youtube_channel_id}?sub_confirmation=1`}>Subscribe</a>
             
         </div>
     );

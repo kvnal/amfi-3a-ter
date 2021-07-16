@@ -4,26 +4,25 @@ import ReactPlayer from "react-player";
 import '../css/watch.css';
 import WatchLike from "./Parts/WatchLike";
 import Episodes from "./Parts/Episodes";
-
-const data = {
-    title: "Title 2hello this is the title 1",
-    utID: "YnP94m5pwls",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    likes: 2,
-    episodes: ["YnP94m5pwls", "oUFJJNQGwhk", "oUFJJNQGwhk", "oUFJJNQGwhk", "oUFJJNQGwhk", ""],
-    creator: ['one', 'two']
-};
+import axios from "axios";
 
 const Watch = () => {
     //fetch id file use
-    // const {id} = useParams();
+    const [data,setData] = useState(null)
+    const [episodeID, setEpisodeID] = useState(null);
+    const [showDesc, setShowDesc] = useState(false);
+    const {id} = useParams();
     useEffect(()=>{
         window.scrollTo(0,0)
-
+        axios.get(`/api/watch/${id}`)
+        .then(response=>{
+            console.log(response.status);
+            setData(response.data)
+            setEpisodeID(response.data.episodes[0])
+        })
     },[])
 
-    const [episodeID, setEpisodeID] = useState(data.episodes[0]);
-    const [showDesc, setShowDesc] = useState(false);
+    if(!data) return null
     return (
         <div className="watch">
             <div className="player">
@@ -63,7 +62,7 @@ const Watch = () => {
                 </div>
                 <div className="extras">
                         <div className="likes">
-                            <WatchLike storageID = {data.utID} likes={data.likes} creator = {data.creator}/>
+                            <WatchLike storageID = {data._id} likes={data.likes} creator = {data.creator}/>
                         </div>
                 </div>
             </div>

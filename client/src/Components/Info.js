@@ -1,24 +1,22 @@
 
 import Instagram from "@material-ui/icons/Instagram";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
-import Video from '@material-ui/icons/Person'
 
-const data = [
-    {
-        name : "one"
-    },
-    {
-        name : "two"
-    },
-    {
-        name : "three"
-    },
-    {
-        name : "four"
-    },
-]
+
 
 const Info = () => {
+    const [data,setData] = useState(null)
+
+    useEffect(()=>{
+        axios.get('/api/info/creators')
+        .then(response=>{
+            setData(response.data)
+        })
+    },[])
+
+    if(!data) return null
     return ( 
         <div className="info">
             <div className="creator">

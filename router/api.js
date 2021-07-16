@@ -38,7 +38,39 @@ router.get('/creator/:id', async (req,res)=>{
     // id == name of creator
     try{
         const ID = req.params.id
-         await schema.creator.find({name : ID})
+         await schema.creator.find({name : ID},{
+             pass : 0
+         })
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+    }
+    catch{
+        return res.status(400)
+    }
+    
+})
+
+router.get('/creator/allvideos/:id', async (req,res)=>{
+    // id == name of creator
+    try{
+        const ID = req.params.id
+         await schema.content.find({creator : ID})
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+    }
+    catch{
+        return res.status(400)
+    }
+    
+})
+
+router.get('/info/creators', async (req,res)=>{
+    try{
+         await schema.creator.find({},{
+             name : 1
+         })
         .exec((err,result)=>{
             return res.json(result)
         })
