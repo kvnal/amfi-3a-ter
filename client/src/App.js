@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import BottomNav from './Components/BottomNav';
 import Home from './Components/Home';
-import Trending  from './Components/Trending';
 import TopNav from './Components/Parts/TopNav';
 import Watch from './Components/Watch';
 import Info from './Components/Info';

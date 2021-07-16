@@ -118,4 +118,21 @@ router.patch("/like/:id",async (req,res)=>{
       return res.status(400).json({messsage: err.message})
     }
 })
+
+
+// admin
+
+router.get('/admin',async (req,res)=>{
+
+    try{
+        await schema.site.find()
+        .exec((err,result)=>{
+            return res.json(result)
+        })
+    }
+    catch(err){
+        return res.json({message:err.message})
+    }
+})
+
 module.exports = router

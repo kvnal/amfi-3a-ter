@@ -9,6 +9,7 @@ app.use('/api', api);
 
 app.get('/', (req, res) => {
     res.send("ok");
+    // add views 
 });
 
 
