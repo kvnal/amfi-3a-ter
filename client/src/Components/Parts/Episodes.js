@@ -19,7 +19,7 @@ const Episodes = ({ episodes, setEpisode }) => {
                     {/* <img src={utID_URL} alt="" /> */}
                 </div>
                 <div className="epdetail" >
-                    Episode {id}
+                    Episode {id+1}
                 </div>
             </div>
 

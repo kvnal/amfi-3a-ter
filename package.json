@@ -1,19 +1,20 @@
 {
-  "name": "onlycheems",
+  "name": "amfi-3a-ter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/icons": "^4.11.2",
-    "material-design-icons": "^3.0.1",
-    "nodemon": "^2.0.11",
-    "react-hot-toast": "^2.0.0",
-    "react-player": "^2.9.0",
-    "react-router-dom": "^5.2.0"
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
   }
 }
